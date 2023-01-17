@@ -4,12 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "echo \"Error: no test specified\" && exit 1"
+    "build": "tailwindcss -i ./style/input.css -o ../style/style.css",
+    "watch" : "tailwindcss -i ./style/input.css -o ../style/style.css --watch" 
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "tailwindcss": "^3.2.4"
-  }
+  "license": "ISC"
 }
