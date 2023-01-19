@@ -1,6 +1,7 @@
 let addArticle = document.getElementById("addArticle") ;
 let form = document.getElementById('form') ;
 
+
 addArticle.addEventListener("click", (e)=>{
     e.preventDefault() ;
     const newTitleField = document.createElement('input');
