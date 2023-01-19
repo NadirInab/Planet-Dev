@@ -1,5 +1,6 @@
-<article class="col-span-12 mx-auto mt-3 p-3">
-        <form id="form" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+<article class="col-span-12 mx-auto mt-3 p-3 bg-gray-600 ">
+        <h2 class="text-white text-center text-2xl font-serif border-b-indigo-700">Add Article(s)</h2>
+        <form id="form" method="POST" class="bg-gray-600 shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2">
                     Title
