@@ -1,43 +1,77 @@
-let addArticle = document.getElementById("addArticle") ;
-let form = document.getElementById('form') ;
+var profile = document.getElementById("profile") ;
+var profileSection =  document.getElementById("profileSection") ;
+
+var menu = document.getElementById("menu") ;
+var aside = document.getElementById("aside") ;
 
 
-addArticle.addEventListener("click", (e)=>{
-    e.preventDefault() ;
-    const newTitleField = document.createElement('input');
-    const newTitleLabel = document.createElement('label') ;
-    const newImageLabel = document.createElement('label') ;
-    const newImageInput = document.createElement('input') ;
-    const newBodyLabel = document.createElement('label') ;
-    const newBodyTextArea = document.createElement('TEXTAREA') ;
-    const hr = document.createElement("hr") ;
-    
-    let arrayOfClasses = ["shadow", "appearance-none", "border", "rounded", "w-full", "py-2", "px-3", "text-gray-700" ,"leading-tight", "focus:outline-none", "focus:shadow-outline", "mt-2"] ;
-    let labelClasses = ["block", "text-gray-700", "text-sm", "font-bold", "mb-2"] ;
+var signIn =  document.getElementById("signInLink") ;
+var signUp =  document.getElementById("singUp12") ;
+var signInForm =  document.getElementById("signInForm") ;
+var signUpForm =  document.getElementById("signUpForm") ;
+var imginput = document.getElementById("exampleInputEmail1") ;
+//========================= form validation
+var signingUpForm = document.getElementById("signingUpForm") ;
+var formInputs = document.getElementsByClassName("form-control") ;
+var userName = document.querySelector('[name="name"]');
+var email = document.querySelector('[name="email"]');
+var phone = document.querySelector('[name="phone"]');
+var profile = document.querySelector('[name="profile"]');
+var pwd = document.querySelector('[name="pwd"]');
+var confirmPwd = document.querySelector('[name="confirmedPwd"]');
 
-    arrayOfClasses.forEach((elem)=>{newTitleField.classList.add(elem)}) ;
-    labelClasses.forEach((elem)=>{newTitleLabel.classList.add(elem)}) ;
 
-    labelClasses.forEach((elem)=>{newImageLabel.classList.add(elem)}) ;
-    arrayOfClasses.forEach((elem)=>{newImageInput.classList.add(elem)}) ;
+function showEroor(input, message){
+    const formControl = input.parentElement ;
+    formControl.className = "form-control error" ;
+    const small = formControl.querySelector("small") ;
+    small.className = "form-control error" ;
+    small.innerText = message ;
+}
+function showSuccess(input){
+    const formControl = input.parentElement ;
+    formControl.className = "form-control success" ;
+}
+function isValidEmail(email){
+    const pattern =/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
+    return pattern.match(email.value) ;
 
-    arrayOfClasses.forEach((elem)=>{newBodyTextArea.classList.add(elem)}) ;
-    labelClasses.forEach((elem)=>{newBodyLabel.classList.add(elem)}) ;
+}   
 
-    newTitleLabel.innerHTML = "Title" ;
-    newImageLabel.innerHTML = "Image" ;
-    newBodyLabel.innerHTML = "Body" ;
-  
-    newTitleField.setAttribute('type','text') ;
-    newTitleField.setAttribute('placeholder','title') ;
-    newTitleField.setAttribute('name', 'title1') ;
+signingUpForm.addEventListener("submit", (e)=>{
+    if(userName.value == ""){
+        e.preventDefault() ;
+        showEroor(userName, "userName is required!!") ;
+    }
+    if(phone.value == ""){
+        e.preventDefault() ;
+        showEroor(phone, "phone is required!!") ;
+    }
+    if(email.value == "" || !isValidEmail(email.value)){
+        e.preventDefault() ;
+        showEroor(email, "please recheck email value ") ;
+    }
+    if(pwd.value == ""){
+        e.preventDefault() ;
+        showEroor(pwd, "pwd is required!!") ;
+    }
+    if(confirmPwd.value == ""){
+        e.preventDefault() ;
+        showEroor(email, "pwd  field is required") ;
+    }
+})
 
-    newImageInput.setAttribute('type','file') ;
-    newImageInput.setAttribute('name', 'image1') ;
 
-    newBodyTextArea.setAttribute('name', 'body2') ;
-    newBodyTextArea.setAttribute('type', 'text') ;
-    newBodyTextArea.setAttribute('placeholder', 'Article Body !!') ;
 
-    form.append(newTitleLabel, newTitleField, newImageLabel, newImageInput, newBodyLabel, newBodyTextArea, hr )
+
+
+signUp.addEventListener("click", ()=>{
+    alert("here signUp") ;
+    signUpForm.style.display = "contents" ;
+    signInForm.style.display = "none" ;
+})
+
+signIn.addEventListener("click", ()=>{
+    signUpForm.style.display = "none" ;
+    signInForm.style.display = "block" ;
 })

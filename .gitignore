@@ -1,2 +1,3 @@
-node_modules 
-*.txt
+libraryKey
+libraryKey.pub
+notes.txt

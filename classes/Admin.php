@@ -1,14 +1,19 @@
-<?php  
+<?php
 
-
-class Admin {
-    public $name ; 
+class Admin{
+    public $fullName;
     public $email ;
-    private $pwd ;
+    public $pwd ;
+    public $image ;
 
-    public function __construct($name , $email , $pwd){
-        $this->name = $name ;
+    public function __construct($fullName, $email, $image, $pwd ){
+        $this->fullName = $fullName ;
         $this->email = $email ;
-        $this->pwd = $pwd ;
-    }
-}
+        $this->image = $image ;
+        $this->pwd = md5($pwd) ;
+    } 
+
+} 
+
+
+
