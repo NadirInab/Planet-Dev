@@ -53,9 +53,8 @@
     function fetchingBooks(){
         global $connect ;
         $admin_id = $_SESSION["admin_id"] ; 
-        $Query = "SELECT * FROM article WHERE admin_id = 2" ;
+        $Query = "SELECT * FROM article" ;
         $stmt = $connect->prepare($Query) ;
-        // $stmt->bindParam(':admin_id' , $admin_id) ;
         $stmt->execute() ;
         $booksData = $stmt->fetchAll(PDO::FETCH_ASSOC) ;
         return $booksData ;
@@ -94,18 +93,18 @@
         return $rowCount ;
     }
 
-    function typeCounter(){
-        global $connect ;
-        $query = "SELECT * FROM book WHERE type LIKE '%IT%' " ;
-        $stmt = $connect->query($query) ;
-        $rowCount = $stmt->rowCount() ;
-        return $rowCount ;
-    }
-    function mystryCounter(){
-        global $connect ;
-        $query = "SELECT * FROM book WHERE type LIKE '%Mystery%' " ;
-        $stmt = $connect->query($query) ;
-        $rowCount = $stmt->rowCount() ;
-        return $rowCount ;
-    }
+    // function typeCounter(){
+    //     global $connect ;
+    //     $query = "SELECT * FROM book WHERE type LIKE '%IT%' " ;
+    //     $stmt = $connect->query($query) ;
+    //     $rowCount = $stmt->rowCount() ;
+    //     return $rowCount ;
+    // }
+    // function mystryCounter(){
+    //     global $connect ;
+    //     $query = "SELECT * FROM book WHERE type LIKE '%Mystery%' " ;
+    //     $stmt = $connect->query($query) ;
+    //     $rowCount = $stmt->rowCount() ;
+    //     return $rowCount ;
+    // }
 
