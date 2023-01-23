@@ -22,14 +22,13 @@ class AdminCrud {
         $stmt->execute();
         }
 
-    public static function upDateBook($data, $connection){
-        $query = "UPDATE book SET  title = :title, type = :bookType ,image = :image ,publish_date = :publish_date WHERE isbn = :isbn " ;
+    public static function upDateArticle($data, $connection){
+        $query = "UPDATE article SET  title = :title,image = :image ,body = :body WHERE id = :id " ;
         $stmt = $connection->prepare($query) ;
-        $stmt->bindParam(':isbn', $data["isbn"]);
+        $stmt->bindParam(':id', $data["id"]);
         $stmt->bindParam(':title', $data["title"]);
-        $stmt->bindParam(':bookType', $data["type"]);
+        $stmt->bindParam(':body', $data["body"]);
         $stmt->bindParam(':image', $data["image"]) ;
-        $stmt->bindParam(':publish_date', $data['publish_date']) ;
         $stmt->execute();
         }
 }

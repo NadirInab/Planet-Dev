@@ -11,7 +11,7 @@
             <div class="card-body h-75 p-5 ">
                 <h6 class="card-title p-2"> <i class="fa-solid fa-user mx-2"></i>  Name  : <strong class="text-secondary">  <?= $_SESSION["admin"] ?>  </strong>   </h6>
                 <h6 class="card-title p-2"><i class="fa-solid fa-envelope mx-1"></i> Email :<strong class="text-secondary"> <?= $_SESSION["email"]   ?> </strong></h6>
-                <h6 class="card-title p-2"> <i class="fa-solid fa-phone mx-2"></i>  Phone : <strong class="text-secondary ">  <?= $_SESSION["phone"]   ?></strong>  </h6>
+                <h6 class="card-title p-2"> <i class="fa-solid fa-phone mx-2"></i>  Phone : <strong class="text-secondary ">  <?= 'test'   ?></strong>  </h6>
             </div>
         </div>
         </div>

@@ -30,17 +30,13 @@
         $stmt->bindParam(':pwd',$userData["pwd"]); 
         $stmt->execute() ;
         $result = $stmt->fetch(PDO::FETCH_ASSOC) ;
-        // echo "<pre>" ;
-        //     var_dump($result) ;
-        // echo "<pre>" ;
-        // die() ;
-  
+
         if($stmt->rowCount() > 0){
             session_start() ; 
             $_SESSION["admin"] = $result["name"] ;
             $_SESSION["profile"] = $result["image"] ;
             $_SESSION["email"] = $result["email"] ;
-            $_SESSION["admin_id"] = $result["admin_id"] ;
+            $_SESSION["admin_id"] = $result["Admin_id"] ;
             header("location: http://localhost/planetdev/templates/adminPage.php?&action=dashboard") ;
         }else{
             return  "notAuser" ;
@@ -79,6 +75,13 @@
     function usersCounter(){
         global $connect ;
         $query = "SELECT * FROM admin" ;
+        $stmt = $connect->query($query) ;
+        $rowCount = $stmt->rowCount() ;
+        return $rowCount ;
+    }
+    function userArticlesCounter($id){
+        global $connect ;
+        $query = "SELECT * FROM article WHERE admin_id = $id" ;
         $stmt = $connect->query($query) ;
         $rowCount = $stmt->rowCount() ;
         return $rowCount ;

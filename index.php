@@ -42,8 +42,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-xxl">
         <div class="mx-4">
-        <img id="logo" src="images/LibraryLogo.png" alt=""> 
-            <span class="navbar-brand fw-bold text-muted " href="#">Planet Dev </span>
+        <img id="logo" src="images/dailydev.png" alt=""> 
+            <span class="planet navbar-brand fw-bold" href="#">Planet Dev </span>
         </div>
     </div>
     </nav>

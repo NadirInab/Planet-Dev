@@ -3,6 +3,7 @@
     --error-color: red; 
     --body-color :azure;
     --form-color :lightblue;
+    --data : #FFEBB7 ;
 }
 *{
     box-sizing: border-box;
@@ -10,6 +11,8 @@
 body{
     overflow-x: hidden;
     overflow-y: hidden;
+    /* background-color: #AD8E70; */
+    background-color: #4B5D67;
 }
 body a{
     text-decoration: none;
@@ -17,7 +20,12 @@ body a{
 }
 nav.navbar{
     width: 100%;
-    background-color: #D6E4E5;
+    background-color: #243763;
+}
+.planet{
+    color: #FF6E31;
+    box-shadow: 2.5px 2px 1px 0px;
+    padding: 5px ;
 }
 #mainPage{
     display: flex;
@@ -27,7 +35,8 @@ nav.navbar{
     max-height: 50%;
 }
 #aside{
-    background-color:#CDF0EA;
+    border-radius: 3px;
+    background-color: #243763;
     height: 100vh;
     width: 13vw;
 } 
@@ -47,12 +56,13 @@ nav.navbar{
     text-decoration: none;
     box-shadow: inset 0 0 0 0 #54b3d6;
     color: #285e61;
+    color: #FFEBB7;
     margin: 0 -.25rem;
     padding: 0 .25rem;
     transition: color .3s ease-in-out, box-shadow .5s ease-in-out;
 }
 .list a:hover{
-    box-shadow: inset 100px 0 0 0 #54b3d6;
+    box-shadow: inset 100px 0 0 0 #AD8E70;
     color: white;
 }
 #signUp12{
@@ -138,6 +148,18 @@ nav.navbar{
     overflow-y: scroll;
 }
 
+#articleMain{
+    /* border: 2px solid red; */
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+#cardData{
+    /* border: 2px solid red; */
+    background-color:#FFF7E9 ;
+}
+
+
 @media screen and (max-width: 1000px) {
     #aside{
         width: 100%;
@@ -183,6 +205,7 @@ nav.navbar{
     }
     #profileSection{
         width: 90%;
+        background-color:#FFF7E9;
     }
     #profileSection i{
         display: none;
@@ -190,6 +213,9 @@ nav.navbar{
 }
 
 @media screen and (max-width: 724px) {
+    body {
+        overflow-y: scroll;
+    }
     #aside{
         width: 100%;
         height: 10vh;

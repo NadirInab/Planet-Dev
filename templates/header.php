@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="../style/bootstrap.min.css">
     <link rel="stylesheet" href="../style/style.css">
-    <title>YouCode Library</title>
+    <title>Planet Dev</title>
 </head>
 <body >
 <nav class="navbar">
     <div class="container-xxl">
-      <div class="">
-      <img id="logo" src="../images/LibraryLogo.png" alt=""> 
-        <span class="navbar-brand fw-bold text-muted bg-primary" href="#">Planet Dev</span>
+      <div class="mx-5">
+      <img id="logo" src="../images/dailydev.png" alt=""> 
+        <span class="planet navbar-brand fw-bold" class="" href="#">Planet Dev</span>
       </div>
   </div>
 </nav>

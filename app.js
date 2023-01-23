@@ -4,6 +4,9 @@ var profileSection =  document.getElementById("profileSection") ;
 var menu = document.getElementById("menu") ;
 var aside = document.getElementById("aside") ;
 
+let articleForm = document.getElementById("articleForm") ;
+let anotherForm = document.getElementById("anotherForm") ;
+
 
 var signIn =  document.getElementById("signInLink") ;
 var signUp =  document.getElementById("singUp12") ;
@@ -63,8 +66,6 @@ signingUpForm.addEventListener("submit", (e)=>{
 
 
 
-
-
 signUp.addEventListener("click", ()=>{
     alert("here signUp") ;
     signUpForm.style.display = "contents" ;
@@ -75,3 +76,35 @@ signIn.addEventListener("click", ()=>{
     signUpForm.style.display = "none" ;
     signInForm.style.display = "block" ;
 })
+
+// anotherForm.addEventListener('click', ()=>{
+//     let div = document.createElement("div") ;
+//     let div1 = document.createElement("div") ;
+//     let div2 = document.createElement("div") ;
+//     let label = document.createElement("label");
+//     let label1 = document.createElement("label");
+//     let label2 = document.createElement("label");
+//     let input = document.createElement("input") ;
+//     let input1 = document.createElement("input") ;
+//     let input2 = document.createElement("input") ;
+//     label.innerHTML = "<b>Title</b>" ;
+//     label1.innerHTML = "<b>Image</b>" ;
+//     label2.innerHTML = "<b>Body</b>" ;
+//     div.classList.add('mb-3') ;
+//     div1.classList.add('mb-3') ;
+//     div2.classList.add('mb-3') ;
+//     label.classList.add('form-label') ;
+//     label1.classList.add('form-label') ;
+//     label2.classList.add('form-label') ;
+//     input.classList.add('form-control') ;
+//     input1.classList.add('form-control') ;
+//     input2.classList.add('form-control') ;
+//     input.setAttribute('name', 'title1') ;
+//     input1.setAttribute('name', 'image1') ;
+//     input1.setAttribute('type', 'file') ;
+//     input2.setAttribute('name', 'body1') ;
+//     div.append(label, input) ;
+//     div1.append(label1, input1) ;
+//     div2.append(label2, input2) ;
+//     articleForm.append(div, div1, div2) ;
+// })
