@@ -122,16 +122,16 @@ nav.navbar{
     transition: transform 1s;
 }
 .card:hover{
-    transform: translateY(15px) scale(1.005) translateZ(0);
+    transform: translateY(8px) scale(1.0001) translateZ(0);
 }
 .card img {
-    opacity: .8;
+    opacity: 1;
     transition: .5s;
 }
 .card:hover img {
     transition: all .2s ease-in-out;
     transition-delay: .5s;
-    opacity: 1.5;
+    opacity: 1.2;
     transform: translateY(4%);
 }
 .card-body ul li:hover{
@@ -158,7 +158,16 @@ nav.navbar{
     /* border: 2px solid red; */
     background-color:#FFF7E9 ;
 }
+#profileSection .card{
+    background-color: #FFEBB7;
+}
 
+.card-body h4{
+    color: #FF6E31;
+}
+.card-body h4 strong{
+    color: #243763;
+}
 
 @media screen and (max-width: 1000px) {
     #aside{
