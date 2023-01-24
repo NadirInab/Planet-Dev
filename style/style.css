@@ -38,10 +38,15 @@ nav.navbar {
     box-shadow: 3px 3px 4px 0px;
     /* border: 2px solid red; */
 }
-
-#searchDiv {
-    border: 2px solid red;
+.Icons{
+    height: 50px;
+    width: 60px;
+    border-radius: 10px;
+    cursor: pointer;
 }
+/* #searchDiv {
+    border: 2px solid red;
+} */
 
 #mainPage {
     display: flex;
