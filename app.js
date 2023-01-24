@@ -20,17 +20,71 @@ var phone = document.querySelector('[name="phone"]');
 var profile = document.querySelector('[name="profile"]');
 var pwd = document.querySelector('[name="pwd"]');
 var confirmPwd = document.querySelector('[name="confirmedPwd"]');
+// ==========
+    // Api
+let newsContainer = document.getElementById("newsContainer") ;
+let apikey = "17e7351a12644b89a90be283cf464451" ;
+let Icons = document.querySelectorAll(".Icons") ;
+// let api  ;
+// api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
+
+for(let i = 0; i< Icons.length; i++){
+    Icons[i].addEventListener('click', ()=>{
+        if(Icons[i].getAttribute('alt') === "bitcoin"){
+            Icons[i].click() ;
+            //  api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
+             fetchData(api) ;
+        }else if(Icons[i].getAttribute('alt') === "apple"){
+            //  api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
+             fetchData(api) ;
+        }else{
+            // console.log("tesla");
+            // api = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apikey}` ;
+            fetchData(api) ;
+        }
+    })
+}
+
+// let api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
+// let api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
+// let api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
+// let api = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apikey}` ;
+function fetchData (api){
+fetch(api)
+.then(res => res.json())
+.then(data =>{
+        let newsArticles = data.articles ;
+        newsArticles.map(article => {
+            newsContainer.innerHTML += `
+                    <div id="cardData" class="col-sm-2 col-md-3 card mt-3" style="width: 18rem;">
+                    <img id="bookImg" src="${article.urlToImage}" class="card-img-top" style="height: 15rem ;" alt="...">
+                    <div class="card-body">
+                    <a class="text-primary" href="${article.url}"><em>Visit Website </em> </a>
+                        <h3 class="cardTitle">${article.title}</h3>
+                        <small class="text-danger">${article.author}</small>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-dark fw-normal ">${article.description}</p>
+                        <b>${article.publishedAt}</b>
+                    </div>
+                </div>
+            ` 
+        })
+ }  ) ;
+}
+
+// ==========
 
 // ===== Read More
 let cardData = document.getElementById("cardData") ;
 let viewArticle = document.getElementById("viewArticle") ;
 let readMore = document.getElementById("readMore") ;
-readMore.addEventListener("click", ()=>{
-    // console.log("click");
-    cardData.style.display = "none" ;
-    viewArticle.style.display = "block" ;
-    // viewArticle.style.position = "absolute" ;
-})
+// readMore?.addEventListener("click", ()=>{
+//     // console.log("click");
+//     cardData.style.display = "none" ;
+//     viewArticle.style.display = "block" ;
+//     // viewArticle.style.position = "absolute" ;
+// })
 // ========= search 
 let cardTitle = document.querySelectorAll(".cardTitle");
 let input = document.getElementById("searchInput") ;
@@ -50,7 +104,7 @@ function searchForArticle() {
     }
 }
 
-input.addEventListener('input', searchForArticle)
+input.addEventListener('input', searchForArticle) ;
 
 // =====
 function showEroor(input, message) {
