@@ -48,9 +48,8 @@
     </div>
     </nav>
     <section id="signUpForm" class="row col-10 m-3 h-75" <?= ($showData == "signIn") ? 'style="display:none ;"': "" ;   ?>> 
-        <div  id="form" class="col-xs-12 col-sm-10 col-md-5 col-lg-6 container w-50 border border-2 pb-3">
+        <div  id="form" class="col-xs-12 col-sm-10 col-md-5 col-lg-6 container w-50 pb-3">
         <h4 class="text-center ">Sign Up </h4>
-
         <?php if($signUpStatus == "Exist") : ?>
             <div class="alert alert-danger">
                 <strong>User already exist</strong>
@@ -63,42 +62,37 @@
         <form id="signingUpForm" style="font-size: 1.2vw;" method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
             <div class="mb-3 col-">
                 <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                <input name="name" type="text" class="form-control input-group input-group-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input name="name" type="text" class="form-control input-group input-group-sm">
                 <small></small>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address </label>
-                <input name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input name="email" type="text" class="form-control">
                 <small></small>
             </div>
-            <!-- <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Phone</label>
-                <input name="phone" type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="06-12-33-45-67">
-                <small></small>
-            </div> -->
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Image</label>
-                <input name="profile" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input name="profile" type="file" class="form-control">
                 <small></small>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input name="pwd" type="password" class="form-control" id="exampleInputPassword1">
+                <input name="pwd" type="password" class="form-control" >
                 <small></small>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                <input name="confirmedPwd" type="password" class="form-control" id="exampleInputPassword1">
+                <input name="confirmedPwd" type="password" class="form-control">
                 <small></small>
             </div>
             <?php if($pwdError) :  ?>
                 <div class="alert alert-danger">  <?= $pwdError ?> <i class="fa-solid fa-face-relieved"></i></div>
             <?php endif ; ?>
             <button name="submit" type="submit" class="btn btn-primary">Sign Up</button>
-            <span  class="text-muted ">Already Sign Up ? <a class="text-primary " role="button" id="signInLink" >Sign In</a> </span>
+            <span  class="text-white ">Already Sign Up ? <a class="text-primary " role="button" id="signInLink" >Sign In</a> </span>
         </form>
     </div> 
-    <img id="img"  class="d-none d-md-inline col-md-4 col-lg-5" src="images/Bibliophile.gif" alt="">
+    <img id="img"  class="d-none d-md-inline col-md-4 col-lg-5" src="images/planetdevsignup.jpg" alt="">
     </section> 
 
     <div id="signInForm" class="container w-50"  <?= ($showData == "signUp") ? 'style="display:none ;"': "" ;   ?>>
@@ -124,7 +118,7 @@
                 <input name="pwd" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <button name="signIn" type="submit" class="btn btn-primary mt-2">Sign In</button>
-            <span  class="text-muted ">Don't have an account ? <a class="text-primary" id="singUp12" >Sign Up</a> </span>
+            <span  class="text-white">Don't have an account ? <a class="text-primary" id="singUp12" >Sign Up</a> </span>
         </form>
     </div> 
     
