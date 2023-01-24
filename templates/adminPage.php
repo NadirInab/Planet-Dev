@@ -7,6 +7,11 @@ include "../includes/function.php";
 isNotSignedIn();
 $articleData = fetchingBooks();
 
+// if (isset($_POST["NewsArticles"])) {
+//     // addArticle();
+//     header("location: adminPage.php?&action=NewsArticles");
+// }
+
 if (isset($_POST["addArticle"])) {
     addArticle();
     header("location: adminPage.php?&action=Articles");
@@ -33,6 +38,7 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                 </div>
                 <ul id="side" class="col-1 col-sm-2 col-md-2 list-group w-75">
                     <li class="list pt-2"> <a href="adminPage.php?&action=dashboard"> <i class="fa-solid fa-house"></i> <strong>Dashboard </strong> </a> </li>
+                    <li class="list pt-2"> <a href="adminPage.php?&action=NewsArticles"> <i class="fa-solid fa-earth-asia"></i><strong>Tech World</strong></a></li>
                     <li class="list pt-2"> <a href="adminPage.php?&action=Articles"><i class="fa-solid fa-book"></i> <strong>Articles</strong> </a> </li>
                     <li class="list pt-2"> <a href="adminPage.php?&action=profile" class=""><i class="fa-solid fa-user"></i> <strong> Profile </strong></a></li>
                     <li class="list pt-2"> <a href="adminPage.php?&action=addArticle"><i class="fa-solid fa-plus"></i> <strong>add Article</strong> </a></li>
@@ -53,7 +59,6 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                 }
                 ?>
             </div>
-
             <?php if (isset($_GET['action']) and $_GET["action"] === "Articles") : ?>
                 <div class="input-group d-flex justify-content-center">
                     <div id="searchDiv" class="form-outline w-25 text-center ">
@@ -79,12 +84,35 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                             <div id="viewArticle">                              
                                     <h3 class="cardTitle w-100 border border-2 bg-light p-2"><?= $article["title"]   ?></h3> 
                                     <p class="p-4 m-5"><?= $article["body"]?></p>
+                                    
                             </div>
                         <?php endforeach;  ?>
                     </div>
                 </main>
             <?php endif;  ?>
+            
 
+            <?php if (isset($_GET['action']) and $_GET["action"] === "NewsArticles") : ?>
+                <div class="input-group d-flex justify-content-around">
+                    <div class="form-outline d-flex pt-2 mt-3">
+                        <img  class="Icons mx-4" src="../images/bitcoin.webp" alt="bitcoin" srcset="">
+                        <img class="Icons  mx-4" src="../images/apple.png" alt="apple" srcset="">
+                        <img class="Icons  mx-4" src="../images/tech.png" alt="tech" srcset="">
+                    </div>
+                    <div id="searchDiv" class="form-outline w-25">
+                        <label class="form-label text-warning fw-bold mx-3 w-50 h4">Search</label>
+                        <input placeholder="Search Here !!" type="search" id="searchInput" class="form-control inline p-2" />
+                    </div>
+                </div>
+                <main id="articleMain" class="mx-5 col-sm-3 col-md-10 col-lg-10 pt-2">
+                    <div id="newsContainer" class="row d-flex justify-content-around">
+                         
+                    </div>
+                </main>
+            <?php endif;  ?>
+                          
+
+            
 
             <?php if (isset($_GET['action']) and $_GET["action"] === "addArticle") : ?>
                 <div class="container w-50 pb-5">
