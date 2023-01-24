@@ -1,21 +1,19 @@
-var profile = document.getElementById("profile") ;
-var profileSection =  document.getElementById("profileSection") ;
+var profile = document.getElementById("profile");
+var profileSection = document.getElementById("profileSection");
+var menu = document.getElementById("menu");
+var aside = document.getElementById("aside");
 
-var menu = document.getElementById("menu") ;
-var aside = document.getElementById("aside") ;
+let articleForm = document.getElementById("articleForm");
+let anotherForm = document.getElementById("anotherForm");
 
-let articleForm = document.getElementById("articleForm") ;
-let anotherForm = document.getElementById("anotherForm") ;
-
-
-var signIn =  document.getElementById("signInLink") ;
-var signUp =  document.getElementById("singUp12") ;
-var signInForm =  document.getElementById("signInForm") ;
-var signUpForm =  document.getElementById("signUpForm") ;
-var imginput = document.getElementById("exampleInputEmail1") ;
+var signIn = document.getElementById("signInLink");
+var signUp = document.getElementById("singUp12");
+var signInForm = document.getElementById("signInForm");
+var signUpForm = document.getElementById("signUpForm");
+var imginput = document.getElementById("exampleInputEmail1");
 //========================= form validation
-var signingUpForm = document.getElementById("signingUpForm") ;
-var formInputs = document.getElementsByClassName("form-control") ;
+var signingUpForm = document.getElementById("signingUpForm");
+var formInputs = document.getElementsByClassName("form-control");
 var userName = document.querySelector('[name="name"]');
 var email = document.querySelector('[name="email"]');
 var phone = document.querySelector('[name="phone"]');
@@ -23,77 +21,83 @@ var profile = document.querySelector('[name="profile"]');
 var pwd = document.querySelector('[name="pwd"]');
 var confirmPwd = document.querySelector('[name="confirmedPwd"]');
 
+// ========= search 
+let cardTitle = document.querySelectorAll(".cardTitle");
+let input = document.getElementById("searchInput") ;
 
-function showEroor(input, message){
-    const formControl = input.parentElement ;
-    formControl.className = "form-control error" ;
-    const small = formControl.querySelector("small") ;
-    small.className = "form-control error" ;
-    small.innerText = message ;
+function searchForArticle() {
+    let filter = input.value.toLocaleUpperCase();
+    let cardTitle = document.querySelectorAll(".cardTitle");
+    for (i = 0; i < cardTitle.length; i++) {
+        let a ; 
+        a = cardTitle[i].innerHTML;
+        console.log(a);
+        if (a.toUpperCase().indexOf(filter) > -1) {
+            cardTitle[i].parentElement.parentElement.style.display = "";
+        } else {
+            cardTitle[i].parentElement.parentElement.style.display = "none";
+        }
+    }
 }
-function showSuccess(input){
-    const formControl = input.parentElement ;
-    formControl.className = "form-control success" ;
+
+input.addEventListener('input', searchForArticle)
+
+// =====
+function showEroor(input, message) {
+    const formControl = input.parentElement;
+    formControl.className = "form-control error";
+    const small = formControl.querySelector("small");
+    small.className = "form-control error";
+    small.innerText = message;
 }
-function isValidEmail(email){
-    const pattern =/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
-    return pattern.match(email.value) ;
+function showSuccess(input) {
+    const formControl = input.parentElement;
+    formControl.className = "form-control success";
+}
+function isValidEmail(email) {
+    const pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return pattern.match(email.value);
+}
 
-}   
-
-signingUpForm.addEventListener("submit", (e)=>{
-    if(userName.value == ""){
-        e.preventDefault() ;
-        showEroor(userName, "userName is required!!") ;
+signingUpForm?.addEventListener("submit", (e) => {
+    if (userName.value == "") {
+        e.preventDefault();
+        showEroor(userName, "userName is required!!");
     }
-    if(phone.value == ""){
-        e.preventDefault() ;
-        showEroor(phone, "phone is required!!") ;
+    if (phone.value == "") {
+        e.preventDefault();
+        showEroor(phone, "phone is required!!");
     }
-    if(email.value == "" || !isValidEmail(email.value)){
-        e.preventDefault() ;
-        showEroor(email, "please recheck email value ") ;
+    if (email.value == "" || !isValidEmail(email.value)) {
+        e.preventDefault();
+        showEroor(email, "please recheck email value ");
     }
-    if(pwd.value == ""){
-        e.preventDefault() ;
-        showEroor(pwd, "pwd is required!!") ;
+    if (pwd.value == "") {
+        e.preventDefault();
+        showEroor(pwd, "pwd is required!!");
     }
-    if(confirmPwd.value == ""){
-        e.preventDefault() ;
-        showEroor(email, "pwd  field is required") ;
+    if (confirmPwd.value == "") {
+        e.preventDefault();
+        showEroor(email, "pwd  field is required");
     }
 })
 
 
-
-signUp.addEventListener("click", ()=>{
-    alert("here signUp") ;
-    signUpForm.style.display = "contents" ;
-    signInForm.style.display = "none" ;
+signUp?.addEventListener("click", () => {
+    alert("here signUp");
+    signUpForm.style.display = "contents";
+    signInForm.style.display = "none";
 })
 
-signIn.addEventListener("click", ()=>{
-    signUpForm.style.display = "none" ;
-    signInForm.style.display = "block" ;
+signIn?.addEventListener("click", () => {
+    signUpForm.style.display = "none";
+    signInForm.style.display = "block";
 })
 
-function searchForArticle(){
-    let input, filter;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    cards = document.getElementsByClassName("card")
-    titles = document.getElementsByClassName("card-title");
-  
-    // Loop through all list items, and hide those who don't match the search query
-    for (i = 0; i < cards.length; i++) {
-      a = titles[i];
-      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        cards[i].style.display = "";
-      } else {
-        cards[i].style.display = "none";
-      }
-    }
-  }
+
+
+
+
 // anotherForm.addEventListener('click', ()=>{
 //     let div = document.createElement("div") ;
 //     let div1 = document.createElement("div") ;
