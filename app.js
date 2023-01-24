@@ -21,6 +21,16 @@ var profile = document.querySelector('[name="profile"]');
 var pwd = document.querySelector('[name="pwd"]');
 var confirmPwd = document.querySelector('[name="confirmedPwd"]');
 
+// ===== Read More
+let cardData = document.getElementById("cardData") ;
+let viewArticle = document.getElementById("viewArticle") ;
+let readMore = document.getElementById("readMore") ;
+readMore.addEventListener("click", ()=>{
+    // console.log("click");
+    cardData.style.display = "none" ;
+    viewArticle.style.display = "block" ;
+    // viewArticle.style.position = "absolute" ;
+})
 // ========= search 
 let cardTitle = document.querySelectorAll(".cardTitle");
 let input = document.getElementById("searchInput") ;

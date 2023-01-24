@@ -44,7 +44,6 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
             <?php
             if (isset($_GET['action']) and $_GET["action"] === "profile") {
                 require "profile.php";
-                die();
             }
             ?>
             <div class="d-flex dashboard">
@@ -57,7 +56,7 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
 
             <?php if (isset($_GET['action']) and $_GET["action"] === "Articles") : ?>
                 <div class="input-group d-flex justify-content-center">
-                    <div class="form-outline w-25 text-center ">
+                    <div id="searchDiv" class="form-outline w-25 text-center ">
                         <label class="form-label text-warning fw-bold mx-3 w-50 h4">Search</label>
                         <input placeholder="Search Here !!" type="search" id="searchInput" class="form-control inline p-2" />
                     </div>
@@ -69,12 +68,17 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                                 <img id="bookImg" src="../images/<?= $article["image"] ?>" class="card-img-top" style="height: 15rem ;" alt="...">
                                 <div class="card-body">
                                     <h3 class="cardTitle"><?= $article["title"]   ?></h3>
-                                    <p><?= $article["body"] ?></p>
+                                    <p><?= substr($article["body"], 10) . " ..."  ?></p>
                                 </div>
                                 <div class="card-body">
                                     <button class="btn btn-warning "><a href="../process.php?id=<?= $article["id"] ?>">update </a> </button>
                                     <button name="delete" value="delete" class="btn btn-danger text-dark"><a href="adminPage.php?id=<?= $article["id"] ?>&action=delete">delete </a> </button>
+                                    <button id="readMore" class="btn btn-info text-dark">Read More</button>
                                 </div>
+                            </div>
+                            <div id="viewArticle">                              
+                                    <h3 class="cardTitle w-100 border border-2 bg-light p-2"><?= $article["title"]   ?></h3> 
+                                    <p class="p-4 m-5"><?= $article["body"]?></p>
                             </div>
                         <?php endforeach;  ?>
                     </div>
