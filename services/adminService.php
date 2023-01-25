@@ -43,10 +43,13 @@
         }
     }
 
+
     function addArticle(){
         global $connect ;
-        $articleData = ["title" => $_POST["title"], "image" => $_POST["image"], "body" => $_POST["body"]] ;
-        AdminCrud::addArticle($articleData, $_SESSION["admin_id"],$connect) ; // see if book is necessary
+        foreach($_POST["title"] as $key => $value){
+            $articleData = ["title" => $_POST["title"][$key], "image" => $_POST["image"][$key], "body" => $_POST["body"][$key]] ;
+            AdminCrud::addArticle($articleData, $_SESSION["admin_id"],$connect)  ;
+        }
         header("location:" .$_SERVER['PHP_SELF'] ) ;
     } 
 
