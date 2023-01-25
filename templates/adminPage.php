@@ -52,7 +52,7 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                 require "profile.php";
             }
             ?>
-            <div class="d-flex dashboard">
+            <div class="d-flex justify-content-around flex-wrap dashboard">
                 <?php
                 if (isset($_GET['action']) and $_GET["action"] === "dashboard") {
                     require "dashboard.php";
@@ -73,18 +73,12 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                                 <img id="bookImg" src="../images/<?= $article["image"] ?>" class="card-img-top" style="height: 15rem ;" alt="...">
                                 <div class="card-body">
                                     <h3 class="cardTitle"><?= $article["title"]   ?></h3>
-                                    <p><?= substr($article["body"], 10) . " ..."  ?></p>
+                                    <p><?= $article["body"] ?></p>
                                 </div>
                                 <div class="card-body">
                                     <button class="btn btn-warning "><a href="../process.php?id=<?= $article["id"] ?>">update </a> </button>
                                     <button name="delete" value="delete" class="btn btn-danger text-dark"><a href="adminPage.php?id=<?= $article["id"] ?>&action=delete">delete </a> </button>
-                                    <button id="readMore" class="btn btn-info text-dark">Read More</button>
                                 </div>
-                            </div>
-                            <div id="viewArticle">                              
-                                    <h3 class="cardTitle w-100 border border-2 bg-light p-2"><?= $article["title"]   ?></h3> 
-                                    <p class="p-4 m-5"><?= $article["body"]?></p>
-                                    
                             </div>
                         <?php endforeach;  ?>
                     </div>
@@ -95,9 +89,9 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
             <?php if (isset($_GET['action']) and $_GET["action"] === "NewsArticles") : ?>
                 <div class="input-group d-flex justify-content-around">
                     <div class="form-outline d-flex pt-2 mt-3">
-                        <img  class="Icons mx-4" src="../images/bitcoin.webp" alt="bitcoin" srcset="">
-                        <img class="Icons  mx-4" src="../images/apple.png" alt="apple" srcset="">
-                        <img class="Icons  mx-4" src="../images/tech.png" alt="tech" srcset="">
+                        <img  class="Icons mx-4" src="../images/bitcoin.webp" alt="bitcoin" title="Bitcoin News" srcset="">
+                        <img class="Icons  mx-4" src="../images/apple.png" alt="apple"  title="Apple News"srcset="">
+                        <img class="Icons  mx-4" src="../images/tech.png" alt="tech"  title="Tech Crunch News" srcset="">
                     </div>
                     <div id="searchDiv" class="form-outline w-25">
                         <label class="form-label text-warning fw-bold mx-3 w-50 h4">Search</label>
@@ -113,9 +107,8 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                           
 
             
-
             <?php if (isset($_GET['action']) and $_GET["action"] === "addArticle") : ?>
-                <div class="container w-50 pb-5">
+                <div class="container w-50 pb-5 border-2 rounded pt-2 mt-3" style="background-color: #A7D2CB;">
                     <h2 class="text-center">add Article</h2>
                     <form id="articleForm" method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
                         <div class="mb-3">
@@ -135,7 +128,7 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                     </form>
                 </div>
             <?php endif;  ?>
-            <!-- <?php endif; ?> -->
+            <?php endif; ?>
         </div>
 </div>
 <script src="../app.js"></script>
