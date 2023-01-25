@@ -12,7 +12,6 @@ class Admin{
         $this->image = $image ;
         $this->pwd = md5($pwd) ;
     } 
-
 } 
 
 

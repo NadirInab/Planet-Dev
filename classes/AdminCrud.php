@@ -3,9 +3,8 @@
 
 class AdminCrud {
     
-    public static function addArticle($Data, $admin_id,$connection){
+    public static function addArticle($Data,$admin_id,$connection){
         $Article1 = new Article($Data["title"],$Data["image"],$Data["body"] , $admin_id) ;
-        // $query = "INSERT INTO book(isbn,title,type,image,publish_date,admin_id) VALUES(:isbn, :title, :bookType,:image,:publish_date,:admin_id)" ;
         $query = "INSERT INTO article(title,image,body,admin_id) VALUES(:title,:image,:body,:admin_id)" ;
         $stmt = $connection->prepare($query) ;
         $stmt->bindParam(':title', $Article1->title);
