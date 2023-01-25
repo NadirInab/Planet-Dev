@@ -9,7 +9,7 @@ function isConnected(){
 
 function isNotSignedIn(){ 
     if($_SESSION["admin"] == null){
-        header("location: http://localhost/libraryManagement/") ;
+        header("location: http://localhost/planetdev/") ;
     }
 }
 
@@ -26,7 +26,6 @@ function pwdIsConfirmed($pwd1,$pwd2){
         return false ;
     }
 }
-
 
 function inValidInputs($data){
     foreach($data as $datum => $value ){
