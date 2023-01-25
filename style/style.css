@@ -212,7 +212,7 @@ nav.navbar {
 }
 
 .card-body h4 {
-    color: #FF6E31;
+    color: white;
 }
 
 .card-body h4 strong {
@@ -220,6 +220,10 @@ nav.navbar {
 }
 
 @media screen and (max-width: 1000px) {
+    body {
+        overflow-y:hidden;
+        overflow-x:hidden;
+    }
     #aside {
         width: 100%;
         text-align: center;
@@ -227,6 +231,9 @@ nav.navbar {
     }
     #searchDiv {
         text-align: center;
+        width: 100vw;
+        top: 0%;
+        /* border: 2px solid red; */
         
     }
     #mainPage {
@@ -254,6 +261,17 @@ nav.navbar {
 
     .fa-solid.fa-right-from-bracket {
         float: right;
+    }
+    #articleMain {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10%;
+        /* width: 50vw; */
+
+    }       
+    #articleMain #searchDiv{
+        /* border: 3px solid lightseagreen; */
+        width: 50vw;
     }
 
     .list strong {
@@ -301,10 +319,15 @@ nav.navbar {
         flex-direction: row-reverse;
     }
 
-    .d-flex.dashboard {
+    /* .d-flex.dashboard {
         display: flex;
         flex-direction: column;
         align-items: center;
+    } */
+    #articleMain {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10%;
     }
 
     .mx-5.card.mt-2 {
