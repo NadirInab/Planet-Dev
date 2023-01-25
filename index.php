@@ -62,27 +62,27 @@
         <?php endif ;  ?>
         <form id="signingUpForm" style="font-size: 1.2vw;" method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
             <div class="mb-3 col-">
-                <label for="exampleInputEmail1" class="form-label">Full Name</label>
+                <label class="form-label">Full Name</label>
                 <input name="name" type="text" class="form-control input-group input-group-sm">
                 <small></small>
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address </label>
+                <label class="form-label">Email address </label>
                 <input name="email" type="text" class="form-control">
                 <small></small>
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Image</label>
+                <label class="form-label">Image</label>
                 <input name="profile" type="file" class="form-control">
                 <small></small>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <label class="form-label">Password</label>
                 <input name="pwd" type="password" class="form-control" >
                 <small></small>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                <label class="form-label">Confirm Password</label>
                 <input name="confirmedPwd" type="password" class="form-control">
                 <small></small>
             </div>
@@ -111,12 +111,12 @@
         <h2 class="text-center">Sign In</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"] ?>">
             <div class="mb-3 w-75 ">
-                <label for="exampleInputEmail1" class="form-label">Email </label>
-                <input name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label  class="form-label">Email </label>
+                <input name="email" type="text" class="form-control" id="exampleInputEmail1" >
             </div>
             <div class="mb-3 w-75">
-                <label for="exampleInputEmail1" class="form-label">Password</label>
-                <input name="pwd" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label  class="form-label">Password</label>
+                <input name="pwd" type="password" class="form-control" >
             </div>
             <button name="signIn" type="submit" class="btn btn-primary mt-2">Sign In</button>
             <span  class="text-white">Don't have an account ? <a class="text-primary" id="singUp12" >Sign Up</a> </span>
