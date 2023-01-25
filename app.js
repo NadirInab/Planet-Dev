@@ -2,11 +2,9 @@ var profile = document.getElementById("profile");
 var profileSection = document.getElementById("profileSection");
 var menu = document.getElementById("menu");
 var aside = document.getElementById("aside");
-
 let articleForm = document.getElementById("articleForm");
 let anotherForm = document.getElementById("anotherForm");
 let addArticleBtn = document.querySelector("#addArticleBtn") ;
-
 var signIn = document.getElementById("signInLink");
 var signUp = document.getElementById("singUp12");
 var signInForm = document.getElementById("signInForm");
@@ -20,18 +18,11 @@ var email = document.querySelector('[name="email"]');
 var profile = document.querySelector('[name="profile"]');
 var pwd = document.querySelector('[name="pwd"]');
 var confirmPwd = document.querySelector('[name="confirmedPwd"]');
-// ====================>
-
-
 // ========== Api
 let newsContainer = document.getElementById("newsContainer") ;
 let apikey = "17e7351a12644b89a90be283cf464451" ;
 let Icons = document.querySelectorAll(".Icons") ;
-// ==================================
-// let api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
- let api ;
-// api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
-fetchData(api) ;
+let api ;
 
 for(let i = 0; i< Icons.length; i++){
     Icons[i].addEventListener('click', ()=>{
@@ -47,13 +38,13 @@ for(let i = 0; i< Icons.length; i++){
         }
     })
 }
-
-// =====================================>
+// =====================================> API's
 // let api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apikey}` ;
 // ========================================>
+
 function fetchData (api){
 fetch(api)
 .then(res => res.json())
@@ -78,7 +69,6 @@ fetch(api)
         })
  }  ) ;
 }
-// ==========
 // ========= search 
 let cardTitle = document.querySelectorAll(".cardTitle");
 let input = document.getElementById("searchInput") ;
@@ -96,9 +86,8 @@ function searchForArticle() {
         }
     }
 }
-
 input?.addEventListener('input', searchForArticle) ;
-// =====
+// Validation signUp 
 function showEroor(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector("small");
@@ -110,11 +99,6 @@ function showSuccess(input) {
     const formControl = input.parentElement;
     formControl.className = "form-control success";
 }
-// function isValidEmail(email) {
-//     const pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     return pattern.match(email.value);
-// } !isValidEmail(email.value)
-
 signingUpForm?.addEventListener("submit", (e) => {
     if (userName.value == "") {
         e.preventDefault();
@@ -140,13 +124,12 @@ signingUpForm?.addEventListener("submit", (e) => {
         window.location.reload() ;
     }, 3000)
 })
-
+//  Validating Add Article
 addArticleBtn?.addEventListener('click', (e)=>{
     e.preventDefault() ;
     let dataTitle = document.querySelectorAll('[name="title[]"]') ;
     let dataImage = document.querySelectorAll('[name="image[]"]') ;
     let dataBody = document.querySelectorAll('[name="body[]"]') ;
-
     for (let i = 0; i < dataTitle.length; i++) {
         if(dataTitle[i].value === ""){
             let small = dataTitle[i].nextSibling.nextSibling ;
@@ -170,10 +153,7 @@ addArticleBtn?.addEventListener('click', (e)=>{
             small.style.fontStyle = 'italic' ;
             small.style.fontWeight = 'bold' ;
             small.style.color = 'red' ;
-        }
-        // console.log(dataTitle[i].value); 
-        // console.log(dataImage[i].value); 
-        // console.log(dataBody[i].value); 
+        } 
     }
 })
 
@@ -181,12 +161,10 @@ signUp?.addEventListener("click", () => {
     signUpForm.style.display = "contents";
     signInForm.style.display = "none";
 })
-
 signIn?.addEventListener("click", () => {
     signUpForm.style.display = "none";
     signInForm.style.display = "block";
 })
-
 anotherForm?.addEventListener('click', ()=>{
     let div = document.createElement("div") ;
     let div1 = document.createElement("div") ;
@@ -219,3 +197,10 @@ anotherForm?.addEventListener('click', ()=>{
     div2.append(label2, input2, small) ;
     articleForm.append(div, div1, div2) ;
 })
+
+
+
+// function isValidEmail(email) {
+//     const pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return pattern.match(email.value);
+// } !isValidEmail(email.value)
