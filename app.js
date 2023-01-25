@@ -20,8 +20,7 @@ var phone = document.querySelector('[name="phone"]');
 var profile = document.querySelector('[name="profile"]');
 var pwd = document.querySelector('[name="pwd"]');
 var confirmPwd = document.querySelector('[name="confirmedPwd"]');
-// ==========
-    // Api
+// ========== Api
 let newsContainer = document.getElementById("newsContainer") ;
 let apikey = "17e7351a12644b89a90be283cf464451" ;
 let Icons = document.querySelectorAll(".Icons") ;
@@ -38,13 +37,11 @@ for(let i = 0; i< Icons.length; i++){
             //  api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
              fetchData(api) ;
         }else{
-            // console.log("tesla");
             // api = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apikey}` ;
             fetchData(api) ;
         }
     })
 }
-
 // let api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
@@ -72,19 +69,8 @@ fetch(api)
         })
  }  ) ;
 }
-
 // ==========
 
-// ===== Read More
-let cardData = document.getElementById("cardData") ;
-let viewArticle = document.getElementById("viewArticle") ;
-let readMore = document.getElementById("readMore") ;
-// readMore?.addEventListener("click", ()=>{
-//     // console.log("click");
-//     cardData.style.display = "none" ;
-//     viewArticle.style.display = "block" ;
-//     // viewArticle.style.position = "absolute" ;
-// })
 // ========= search 
 let cardTitle = document.querySelectorAll(".cardTitle");
 let input = document.getElementById("searchInput") ;
@@ -95,7 +81,6 @@ function searchForArticle() {
     for (i = 0; i < cardTitle.length; i++) {
         let a ; 
         a = cardTitle[i].innerHTML;
-        console.log(a);
         if (a.toUpperCase().indexOf(filter) > -1) {
             cardTitle[i].parentElement.parentElement.style.display = "";
         } else {
@@ -104,7 +89,7 @@ function searchForArticle() {
     }
 }
 
-input.addEventListener('input', searchForArticle) ;
+input?.addEventListener('input', searchForArticle) ;
 
 // =====
 function showEroor(input, message) {
@@ -162,34 +147,34 @@ signIn?.addEventListener("click", () => {
 
 
 
-// anotherForm.addEventListener('click', ()=>{
-//     let div = document.createElement("div") ;
-//     let div1 = document.createElement("div") ;
-//     let div2 = document.createElement("div") ;
-//     let label = document.createElement("label");
-//     let label1 = document.createElement("label");
-//     let label2 = document.createElement("label");
-//     let input = document.createElement("input") ;
-//     let input1 = document.createElement("input") ;
-//     let input2 = document.createElement("input") ;
-//     label.innerHTML = "<b>Title</b>" ;
-//     label1.innerHTML = "<b>Image</b>" ;
-//     label2.innerHTML = "<b>Body</b>" ;
-//     div.classList.add('mb-3') ;
-//     div1.classList.add('mb-3') ;
-//     div2.classList.add('mb-3') ;
-//     label.classList.add('form-label') ;
-//     label1.classList.add('form-label') ;
-//     label2.classList.add('form-label') ;
-//     input.classList.add('form-control') ;
-//     input1.classList.add('form-control') ;
-//     input2.classList.add('form-control') ;
-//     input.setAttribute('name', 'title1') ;
-//     input1.setAttribute('name', 'image1') ;
-//     input1.setAttribute('type', 'file') ;
-//     input2.setAttribute('name', 'body1') ;
-//     div.append(label, input) ;
-//     div1.append(label1, input1) ;
-//     div2.append(label2, input2) ;
-//     articleForm.append(div, div1, div2) ;
-// })
+anotherForm.addEventListener('click', ()=>{
+    let div = document.createElement("div") ;
+    let div1 = document.createElement("div") ;
+    let div2 = document.createElement("div") ;
+    let label = document.createElement("label");
+    let label1 = document.createElement("label");
+    let label2 = document.createElement("label");
+    let input = document.createElement("input") ;
+    let input1 = document.createElement("input") ;
+    let input2 = document.createElement("input") ;
+    label.innerHTML = "<b>Title</b>" ;
+    label1.innerHTML = "<b>Image</b>" ;
+    label2.innerHTML = "<b>Body</b>" ;
+    div.classList.add('mb-3') ;
+    div1.classList.add('mb-3') ;
+    div2.classList.add('mb-3') ;
+    label.classList.add('form-label') ;
+    label1.classList.add('form-label') ;
+    label2.classList.add('form-label') ;
+    input.classList.add('form-control') ;
+    input1.classList.add('form-control') ;
+    input2.classList.add('form-control') ;
+    input.setAttribute('name', 'title1') ;
+    input1.setAttribute('name', 'image1') ;
+    input1.setAttribute('type', 'file') ;
+    input2.setAttribute('name', 'body1') ;
+    div.append(label, input) ;
+    div1.append(label1, input1) ;
+    div2.append(label2, input2) ;
+    articleForm.append(div, div1, div2) ;
+})
