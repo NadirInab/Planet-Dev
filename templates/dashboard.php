@@ -8,7 +8,7 @@
     $mystryCounter = 5 ;
 ?>
  <div class="mx-5 card mt-2" style="width:17rem; height: 23rem ;background-color: #628E90;">
-    <img class="card-img-top p-3" src="../images/article.png" alt="Card image cap">
+    <img class="card-img-top p-3" src="../images/dailyNews.jpg" alt="Card image cap">
     <div class="card-body">
         <h4 class="card-title pt-3 mt-3 text-center">Total of Articles : <strong class="fw-bold">  <?= $articlesCount ;  ?> </strong> </h4>
     </div>
