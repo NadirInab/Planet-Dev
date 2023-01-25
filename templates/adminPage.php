@@ -7,10 +7,6 @@ include "../includes/function.php";
 isNotSignedIn();
 $articleData = fetchingBooks();
 
-// if (isset($_POST["NewsArticles"])) {
-//     // addArticle();
-//     header("location: adminPage.php?&action=NewsArticles");
-// }
 
 if (isset($_POST["addArticle"])) {
     addArticle();
@@ -52,7 +48,7 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                 require "profile.php";
             }
             ?>
-            <div class="d-flex justify-content-around flex-wrap dashboard">
+            <div class="d-flex justify-content-around flex-wrap dashboard mb-4 pb-5">
                 <?php
                 if (isset($_GET['action']) and $_GET["action"] === "dashboard") {
                     require "dashboard.php";
@@ -60,13 +56,13 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                 ?>
             </div>
             <?php if (isset($_GET['action']) and $_GET["action"] === "Articles") : ?>
-                <div class="input-group d-flex justify-content-center">
-                    <div id="searchDiv" class="form-outline w-25 text-center ">
-                        <label class="form-label text-warning fw-bold mx-3 w-50 h4">Search</label>
-                        <input placeholder="Search Here !!" type="search" id="searchInput" class="form-control inline p-2" />
-                    </div>
-                </div>
                 <main id="articleMain" class="mx-5 col-sm-3 col-md-10 col-lg-10 pt-2">
+                    <div class="input-group d-flex justify-content-center">
+                        <div id="searchDiv" class="form-outline w-25 text-center ">
+                            <label class="form-label text-warning fw-bold mx-3 w-50 h4">Search</label>
+                            <input placeholder="Search Here !!" type="search" id="searchInput" class="form-control inline p-2" />
+                        </div>
+                    </div>
                     <div class="row d-flex justify-content-around">
                         <?php foreach ($articleData as $article) : ?>
                             <div id="cardData" class="col-sm-2 col-md-3 card mt-3" style="width: 18rem;">
@@ -85,13 +81,12 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                 </main>
             <?php endif;  ?>
             
-
             <?php if (isset($_GET['action']) and $_GET["action"] === "NewsArticles") : ?>
                 <div class="input-group d-flex justify-content-around">
                     <div class="form-outline d-flex pt-2 mt-3">
                         <img  class="Icons mx-4" src="../images/bitcoin.webp" alt="bitcoin" title="Bitcoin News" srcset="">
                         <img class="Icons  mx-4" src="../images/apple.png" alt="apple"  title="Apple News"srcset="">
-                        <img class="Icons  mx-4" src="../images/tech.png" alt="tech"  title="Tech Crunch News" srcset="">
+                        <img class="Icons mx-4" src="../images/Tesla_logo.png" alt="tech"  title="Tesla News" srcset="">
                     </div>
                     <div id="searchDiv" class="form-outline w-25">
                         <label class="form-label text-warning fw-bold mx-3 w-50 h4">Search</label>
@@ -113,17 +108,20 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                     <form id="articleForm" method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label fw-bold">Title</label>
-                            <input name="title" type="text" class="form-control">
+                            <input name="title[]" type="text" class="form-control">
+                            <small></small>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label fw-bold">Image</label>
-                            <input name="image" type="file" class="form-control">
+                            <input name="image[]" type="file" class="form-control">
+                            <small></small>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label fw-bold">Body</label>
-                            <input name="body" type="text" class="form-control">
+                            <input name="body[]" type="text" class="form-control">
+                            <small></small>
                         </div>
-                        <button name="addArticle" type="submit" class="btn btn-primary mt-2">Submit</button>
+                        <button id="addArticleBtn" name="addArticle" type="submit" class="btn btn-primary mt-2">Submit</button>
                         <button id="anotherForm" type="button" class="btn btn-secondary mt-2">Another Form</button>
                     </form>
                 </div>
