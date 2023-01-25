@@ -36,7 +36,8 @@ nav.navbar {
     background-color: whitesmoke;
     box-shadow: 3px 3px 4px 0px;
 }
-.Icons{
+
+.Icons {
     height: 50px;
     width: 60px;
     border-radius: 10px;
@@ -221,21 +222,24 @@ nav.navbar {
 
 @media screen and (max-width: 1000px) {
     body {
-        overflow-y:hidden;
-        overflow-x:hidden;
+        overflow-y: hidden;
+        overflow-x: hidden;
     }
+
     #aside {
         width: 100%;
         text-align: center;
         height: 5vh;
     }
+
     #searchDiv {
         text-align: center;
         width: 100vw;
         top: 0%;
         /* border: 2px solid red; */
-        
+
     }
+
     #mainPage {
         display: flex;
         flex-direction: column;
@@ -262,14 +266,16 @@ nav.navbar {
     .fa-solid.fa-right-from-bracket {
         float: right;
     }
+
     #articleMain {
         display: flex;
         flex-direction: column;
         margin-top: 10%;
         /* width: 50vw; */
 
-    }       
-    #articleMain #searchDiv{
+    }
+
+    #articleMain #searchDiv {
         /* border: 3px solid lightseagreen; */
         width: 50vw;
     }
