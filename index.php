@@ -2,6 +2,7 @@
 include __DIR__ . "/services/adminService.php";
 include "includes/function.php";
 
+// isNotSignedIn() ;
 $signUpStatus = null;
 $pwdError = null;
 $signInStatus = null;
@@ -37,7 +38,7 @@ if (isset($_POST["signIn"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/style.css">
-    <link rel="icon" type="image/x-icon" href="/images/dailydev.png">
+    <link rel="icon" type="image/x-icon" href="./images/">
     <title>Planet Dev</title>
 </head>
 
