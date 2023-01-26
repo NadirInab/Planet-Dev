@@ -197,7 +197,7 @@ nav.navbar {
 
 #articleMain {
     width: 90%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #cardData {
@@ -317,22 +317,36 @@ nav.navbar {
         height: 10vh;
     }
 
-    #mainDiv {
+    /* #mainDiv {
         display: flex;
-        flex-direction: row-reverse;
-    }
+        /* flex-direction: row-reverse; */
+    /* }  */
 
     /* .d-flex.dashboard {
         display: flex;
         flex-direction: column;
         align-items: center;
     } */
-    #articleMain {
+
+    /* #articleMain {
         display: flex;
         flex-direction: column;
-        margin-top: 10%;
+        margin-top: 30%;
     }
+    #mainDiv{
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column; 
+        text-align: center;
 
+    } */
+
+    #searchDiv{
+        width: 10%;
+    }
+    #searchDiv #searchInput{
+        width: 50vw;
+    }
     .mx-5.card.mt-2 {
         margin-left: 0 !important;
     }
