@@ -5,7 +5,7 @@ include "../services/adminService.php";
 include "../includes/function.php";
 
 isNotSignedIn();
-$articleData = fetchingBooks();
+$articleData = fetchingArticles();
 
 
 if (isset($_POST["addArticle"])) {
@@ -33,12 +33,12 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
                     <h5 class="text-white"> Welcome <strong class="text-white"> <?= $_SESSION["admin"] ?> </strong> </h5>
                 </div>
                 <ul id="side" class="col-1 col-sm-2 col-md-2 list-group w-75">
-                    <li class="list pt-2"> <a href="adminPage.php?&action=dashboard"> <i class="fa-solid fa-house"></i> <strong>Dashboard </strong> </a> </li>
-                    <li class="list pt-2"> <a href="adminPage.php?&action=NewsArticles"> <i class="fa-solid fa-earth-asia"></i><strong>Tech World</strong></a></li>
-                    <li class="list pt-2"> <a href="adminPage.php?&action=Articles"><i class="fa-solid fa-book"></i> <strong>Articles</strong> </a> </li>
-                    <li class="list pt-2"> <a href="adminPage.php?&action=profile" class=""><i class="fa-solid fa-user"></i> <strong> Profile </strong></a></li>
-                    <li class="list pt-2"> <a href="adminPage.php?&action=addArticle"><i class="fa-solid fa-plus"></i> <strong>add Article</strong> </a></li>
-                    <li class="list pt-2"> <a href="adminPage.php?&action=signOut"> <i class="fa-solid fa-right-from-bracket"></i> <strong>Sign Out</strong></a> </li>
+                    <li class="list pt-2 mt-2"> <a href="adminPage.php?&action=dashboard"> <i class="fa-solid fa-house"></i> <strong>Dashboard </strong> </a> </li>
+                    <li class="list pt-4 "> <a href="adminPage.php?&action=NewsArticles"> <i class="fa-solid fa-earth-asia"></i><strong>Tech World</strong></a></li>
+                    <li class="list pt-4"> <a href="adminPage.php?&action=Articles"><i class="fa-solid fa-book"></i> <strong>Articles</strong> </a> </li>
+                    <li class="list pt-4"> <a href="adminPage.php?&action=profile" class=""><i class="fa-solid fa-user"></i> <strong> Profile </strong></a></li>
+                    <li class="list pt-4"> <a href="adminPage.php?&action=addArticle"><i class="fa-solid fa-plus"></i> <strong>add Article</strong> </a></li>
+                    <li class="list pt-4"> <a href="adminPage.php?&action=signOut"> <i class="fa-solid fa-right-from-bracket"></i> <strong>Sign Out</strong></a> </li>
                 </ul>
             </div>
         </aside>
