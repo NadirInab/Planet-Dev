@@ -56,15 +56,15 @@ function addArticle()
     header("location:" . $_SERVER['PHP_SELF']);
 }
 
-function fetchingBooks()
+function fetchingArticles()
 {
     global $connect;
-    $admin_id = $_SESSION["admin_id"];
+    $admin_id = $_SESSION["admin_id"]; 
     $Query = "SELECT * FROM article";
     $stmt = $connect->prepare($Query);
     $stmt->execute();
-    $booksData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $booksData;
+    $articlesData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $articlesData;
 }
 
 function deleteArticle()
@@ -87,6 +87,7 @@ function usersCounter()
     $rowCount = $stmt->rowCount();
     return $rowCount;
 }
+
 function userArticlesCounter($id)
 {
     global $connect;
@@ -103,18 +104,3 @@ function articlesCounter()
     $rowCount = $stmt->rowCount();
     return $rowCount;
 }
-
-    // function typeCounter(){
-    //     global $connect ;
-    //     $query = "SELECT * FROM book WHERE type LIKE '%IT%' " ;
-    //     $stmt = $connect->query($query) ;
-    //     $rowCount = $stmt->rowCount() ;
-    //     return $rowCount ;
-    // }
-    // function mystryCounter(){
-    //     global $connect ;
-    //     $query = "SELECT * FROM book WHERE type LIKE '%Mystery%' " ;
-    //     $stmt = $connect->query($query) ;
-    //     $rowCount = $stmt->rowCount() ;
-    //     return $rowCount ;
-    // }
