@@ -1,0 +1,22 @@
+use composer to validate data .
+
+
+class ==> class is a blue print |- model 
+
+object is an instance of a class .
+oop pillars ==> abstraction | encapsulation | polymorphism | inheritance . 
+self and this . 
+interface | abtract | abtract methods 
+
+static method 
+mcd ==> entity ==> identifiant ==> les proprietés ==> association ==> les cardinality . 
+
+mld representation graphique ==> basant sur le mld en peut generer le mcd . 
+
+abtract class | interface 
+
+interface ==> not have proprieties . all methods must be public 
+abtract ==> is a class wich contains at least one abtsrdact method . 
+
+encapsulation ==> wrapping up data memberes in one signle unit called class .
+
