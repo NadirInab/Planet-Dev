@@ -22,29 +22,32 @@ let confirmPwd = document.querySelector('[name="confirmedPwd"]');
 let newsContainer = document.getElementById("newsContainer");
 let apikey = "17e7351a12644b89a90be283cf464451";
 let Icons = document.querySelectorAll(".Icons");
-// let api;
-
-// let api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
-//  let api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
+// let api = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apikey}` ;
+// let api = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apikey}` ;
 
-// fetchData(api) ;
 // =====================================> API's
+// api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
+// let api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apikey}` ;
 // ========================================>
+
 for (let i = 0; i < Icons.length; i++) {
     Icons[i].addEventListener('click', () => {
-        api = "" ;
+        // api = "" ;
         if (Icons[i].getAttribute('alt') === "bitcoin") {
+            newsContainer.innerHTML = "" ;
             //  api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
-            fetchData(api);
+            // fetchData(api);
         } else if (Icons[i].getAttribute('alt') === "apple") {
+            newsContainer.innerHTML = "" ;
             // api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
-            fetchData(api);
+            // fetchData(api);
         } else {
+            newsContainer.innerHTML = "" ;
             // api = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apikey}` ;
-            fetchData(api);
+            // fetchData(api);
         }
     })
 }
@@ -55,7 +58,7 @@ function fetchData(api) {
         .then(data => {
             let newsArticles = data.articles;
             // console.log(newsArticles);
-            newsArticles.map(article => {
+            newsArticles?.map(article => {
                 newsContainer.innerHTML += `
                     <div id="cardData" class="col-sm-2 col-md-3 card mt-3" style="width: 18rem;">
                     <img id="bookImg" src="${article.urlToImage}" class="card-img-top" style="height: 15rem ;" alt="...">
@@ -64,14 +67,17 @@ function fetchData(api) {
                         <h3 class="cardTitle">${article.title.substring(0, 12)}</h3>
                         <small class="text-danger">${article.author}</small>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <p class="text-dark fw-normal ">${article.description}</p>
-                        <b>${article.publishedAt}</b>
+                        <b class='text-success border-bottom'>${article.publishedAt}</b>
                     </div>
                 </div>
             `})
         });
 }
+
+// fetchData(api) ;
+
 // ========= search 
 let cardTitle = document.querySelectorAll(".cardTitle");
 let input = document.getElementById("searchInput");
