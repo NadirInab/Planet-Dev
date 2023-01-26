@@ -23,7 +23,7 @@ let newsContainer = document.getElementById("newsContainer");
 let apikey = "17e7351a12644b89a90be283cf464451";
 let Icons = document.querySelectorAll(".Icons");
 // let api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
-// let api = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apikey}` ;
+let api = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apikey}` ;
 
 // =====================================> API's
@@ -38,33 +38,33 @@ for (let i = 0; i < Icons.length; i++) {
         // api = "" ;
         if (Icons[i].getAttribute('alt') === "bitcoin") {
             newsContainer.innerHTML = "" ;
-            //  api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
-            // fetchData(api);
+             api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
+            fetchData(api);
         } else if (Icons[i].getAttribute('alt') === "apple") {
             newsContainer.innerHTML = "" ;
-            // api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
-            // fetchData(api);
+            api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
+            fetchData(api);
         } else {
             newsContainer.innerHTML = "" ;
-            // api = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apikey}` ;
-            // fetchData(api);
+            api = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apikey}` ;
+            fetchData(api);
         }
     })
 }
 
 function fetchData(api) {
     fetch(api)
-        .then(res => res.json())
+        .then(res =>res.json())
         .then(data => {
             let newsArticles = data.articles;
-            // console.log(newsArticles);
+            console.log(newsArticles);
             newsArticles?.map(article => {
                 newsContainer.innerHTML += `
                     <div id="cardData" class="col-sm-2 col-md-3 card mt-3" style="width: 18rem;">
                     <img id="bookImg" src="${article.urlToImage}" class="card-img-top" style="height: 15rem ;" alt="...">
                     <div class="card-body">
                     <a class="text-primary" href="${article.url}"><em>Visit Website </em> </a>
-                        <h3 class="cardTitle">${article.title.substring(0, 12)}</h3>
+                        <h3 class="cardTitle">${article.title?.substring(0, 12)}</h3>
                         <small class="text-danger">${article.author}</small>
                     </div>
                     <div class="card-body text-center">
@@ -76,7 +76,7 @@ function fetchData(api) {
         });
 }
 
-// fetchData(api) ;
+fetchData(api) ;
 
 // ========= search 
 let cardTitle = document.querySelectorAll(".cardTitle");
