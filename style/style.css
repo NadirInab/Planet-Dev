@@ -126,7 +126,7 @@ nav.navbar {
 
 #signUpForm,
 #signInForm {
-    background: rgba(0, 120, 163, 0.3);
+    background-color: #6FA3A9;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(17px);
     -webkit-backdrop-filter: blur(17px);
@@ -271,12 +271,9 @@ nav.navbar {
         display: flex;
         flex-direction: column;
         margin-top: 10%;
-        /* width: 50vw; */
-
     }
 
     #articleMain #searchDiv {
-        /* border: 3px solid lightseagreen; */
         width: 50vw;
     }
 
