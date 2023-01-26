@@ -1,23 +1,23 @@
-var profile = document.getElementById("profile");
-var profileSection = document.getElementById("profileSection");
-var menu = document.getElementById("menu");
-var aside = document.getElementById("aside");
+let profileImg = document.getElementById("profile");
+let profileSection = document.getElementById("profileSection");
+let menu = document.getElementById("menu");
+let aside = document.getElementById("aside");
 let articleForm = document.getElementById("articleForm");
 let anotherForm = document.getElementById("anotherForm");
 let addArticleBtn = document.querySelector("#addArticleBtn");
-var signIn = document.getElementById("signInLink");
-var signUp = document.getElementById("singUp12");
-var signInForm = document.getElementById("signInForm");
-var signUpForm = document.getElementById("signUpForm");
-var imginput = document.getElementById("exampleInputEmail1");
+let signIn = document.getElementById("signInLink");
+let signUp = document.getElementById("singUp12");
+let signInForm = document.getElementById("signInForm");
+let signUpForm = document.getElementById("signUpForm");
+let imginput = document.getElementById("exampleInputEmail1");
 //========================= form validation
-var signingUpForm = document.getElementById("signingUpForm");
-var formInputs = document.getElementsByClassName("form-control");
-var userName = document.querySelector('[name="name"]');
-var email = document.querySelector('[name="email"]');
-var profile = document.querySelector('[name="profile"]');
-var pwd = document.querySelector('[name="pwd"]');
-var confirmPwd = document.querySelector('[name="confirmedPwd"]');
+let signingUpForm = document.getElementById("signingUpForm");
+let formInputs = document.getElementsByClassName("form-control");
+let userName = document.querySelector('[name="name"]');
+let email = document.querySelector('[name="email"]');
+let profile = document.querySelector('[name="profile"]');
+let pwd = document.querySelector('[name="pwd"]');
+let confirmPwd = document.querySelector('[name="confirmedPwd"]');
 // ========== Api
 let newsContainer = document.getElementById("newsContainer");
 let apikey = "17e7351a12644b89a90be283cf464451";
@@ -28,13 +28,14 @@ let Icons = document.querySelectorAll(".Icons");
 // let api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
 //  let api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
 
-fetchData(api) ;
+// fetchData(api) ;
 // =====================================> API's
 // let api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${apikey}` ;
 // ========================================>
 for (let i = 0; i < Icons.length; i++) {
     Icons[i].addEventListener('click', () => {
+        api = "" ;
         if (Icons[i].getAttribute('alt') === "bitcoin") {
             //  api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
             fetchData(api);
@@ -53,7 +54,7 @@ function fetchData(api) {
         .then(res => res.json())
         .then(data => {
             let newsArticles = data.articles;
-            console.log(newsArticles);
+            // console.log(newsArticles);
             newsArticles.map(article => {
                 newsContainer.innerHTML += `
                     <div id="cardData" class="col-sm-2 col-md-3 card mt-3" style="width: 18rem;">
@@ -93,7 +94,7 @@ input?.addEventListener('input', searchForArticle);
 function showEroor(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector("small");
-    small.className = "border-danger text-danger";
+    small.className = "border-danger text-danger fw-bold";
     small.innerText = message;
 }
 
@@ -122,18 +123,19 @@ signingUpForm?.addEventListener("submit", (e) => {
         e.preventDefault();
         showEroor(email, "pwd  field is required");
     }
-    setTimeout(() => {
-        window.location.reload();
-    }, 3000)
+    // setTimeout(() => {
+    //     window.location.reload();
+    // }, 4000)
 })
 //  Validating Add Article
 addArticleBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     let dataTitle = document.querySelectorAll('[name="title[]"]');
     let dataImage = document.querySelectorAll('[name="image[]"]');
     let dataBody = document.querySelectorAll('[name="body[]"]');
     for (let i = 0; i < dataTitle.length; i++) {
         if (dataTitle[i].value === "") {
+            e.preventDefault() ;
             let small = dataTitle[i].nextSibling.nextSibling;
             small.innerHTML = "Field is highly required !!";
             small.style.fontStyle = 'italic';
@@ -141,7 +143,7 @@ addArticleBtn?.addEventListener('click', (e) => {
             small.style.color = 'red';
         }
         if (dataImage[i].value === "") {
-            console.log("empty image");
+            e.preventDefault() ;
             let small = dataImage[i].nextSibling.nextSibling;
             small.innerHTML = "Field is highly required !!";
             small.style.fontStyle = 'italic';
@@ -149,7 +151,7 @@ addArticleBtn?.addEventListener('click', (e) => {
             small.style.color = 'red';
         }
         if (dataBody[i].value === "") {
-            console.log("empty body");
+            e.preventDefault() ;
             let small = dataBody[i].nextSibling.nextSibling;
             small.innerHTML = "Field is highly required !!";
             small.style.fontStyle = 'italic';
@@ -199,9 +201,6 @@ anotherForm?.addEventListener('click', () => {
     div2.append(label2, input2, small);
     articleForm.append(div, div1, div2);
 })
-
-
-
 // function isValidEmail(email) {
 //     const pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 //     return pattern.match(email.value);
