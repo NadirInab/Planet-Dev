@@ -103,7 +103,7 @@ if (isset($_GET["action"]) && $_GET['action'] === 'signOut') {
 
             
             <?php if (isset($_GET['action']) and $_GET["action"] === "addArticle") : ?>
-                <div class="container w-50 pb-5 border-2 rounded pt-2 p-5 mt-3" style="background-color: #A7D2CB;box-shadow: inset 0 0 15px #000000; ">
+                <div class="container w-50 pb-5 border-2 rounded pt-2 p-5 mt-3" style="background-color: #A7D2CB;box-shadow: inset 0 0 10px #000000; ">
                     <h2 class="text-center">add Article</h2>
                     <form id="articleForm" method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
                         <div class="mb-3">
