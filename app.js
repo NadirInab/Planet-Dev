@@ -22,10 +22,7 @@ let confirmPwd = document.querySelector('[name="confirmedPwd"]');
 let newsContainer = document.getElementById("newsContainer");
 let apikey = "17e7351a12644b89a90be283cf464451";
 let Icons = document.querySelectorAll(".Icons");
-// let api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
 let api = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apikey}` ;
-// let api = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apikey}` ;
-
 // =====================================> API's
 // api = `https://newsapi.org/v2/everything?q=tesla&from=2022-12-24&sortBy=publishedAt&apiKey=${apikey}` ;
 // let api = `https://newsapi.org/v2/everything?q=apple&from=2023-01-23&to=2023-01-23&sortBy=popularity&apiKey=${apikey}` ;
@@ -35,7 +32,6 @@ let api = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apikey}` ;
 
 for (let i = 0; i < Icons.length; i++) {
     Icons[i].addEventListener('click', () => {
-        // api = "" ;
         if (Icons[i].getAttribute('alt') === "bitcoin") {
             newsContainer.innerHTML = "" ;
              api = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apikey}` ;
@@ -75,7 +71,6 @@ function fetchData(api) {
             `})
         });
 }
-
 fetchData(api) ;
 
 // ========= search 
@@ -123,11 +118,11 @@ signingUpForm?.addEventListener("submit", (e) => {
     }
     if (pwd.value == "") {
         e.preventDefault();
-        showEroor(pwd, "pwd is required!!");
+        showEroor(pwd, "Filed  is required!!");
     }
     if (confirmPwd.value == "") {
         e.preventDefault();
-        showEroor(email, "pwd  field is required");
+        showEroor(email, "Field  field is required");
     }
     // setTimeout(() => {
     //     window.location.reload();
